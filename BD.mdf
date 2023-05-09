@@ -1,0 +1,234 @@
+create database Agencia_de_Viajes_Clementina
+use Agencia_de_Viajes_Clementina
+create table Empleados
+(
+CEDULA VARCHAR (14) PRIMARY KEY NOT NULL,
+NOMBRE VARCHAR (30) NOT NULL,
+APELLIDOS VARCHAR (30) NOT NULL,
+FECHA_NACIMIENTO DATE NOT NULL,
+DIRECCION VARCHAR (40),
+TELEFONO VARCHAR (12) NOT NULL,
+ID_SECTOR INT NOT NULL,
+ID_MUNICIPIO INT NOT NULL,
+ID_PROVINCIA INT NOT NULL,
+ID_REGION INT NOT NULL,
+EMAIL VARCHAR (40) NOT NULL,
+FECHA_CREACION DATE NOT NULL,
+ID_DEPARTAMENTO INT NOT NULL
+)
+create table viajeros
+(
+CEDULA VARCHAR (14) PRIMARY KEY NOT NULL,
+NOMBRE VARCHAR (30) NOT NULL,
+APELLIDOS VARCHAR (30) NOT NULL,
+FECHA_NACIMIENTO DATE NOT NULL,
+DIRECCION VARCHAR (40),
+TELEFONO VARCHAR (12) NOT NULL,
+ID_SECTOR INT NOT NULL,
+ID_MUNICIPIO INT NOT NULL,
+ID_PROVINCIA INT NOT NULL,
+ID_REGION INT NOT NULL,
+EMAIL VARCHAR (40) NOT NULL,
+FECHA_CREACION DATE NOT NULL
+)
+create table ID_SECTOR
+(
+ID INT PRIMARY KEY NOT NULL,
+DESCRIPCION VARCHAR (25)
+)
+create table ID_MUNICIPIO
+(
+ID INT PRIMARY KEY NOT NULL,
+DESCRIPCION VARCHAR (25)
+)
+create table ID_PROVINCIA
+(
+ID INT PRIMARY KEY NOT NULL,
+DESCRIPCION VARCHAR (25)
+)
+create table ID_REGION
+(
+ID INT PRIMARY KEY NOT NULL,
+DESCRIPCION VARCHAR (25)
+)
+create table ID_DEPARTAMENTO
+(
+ID INT PRIMARY KEY NOT NULL,
+DESCRIPCION VARCHAR (25)
+)
+create table RESERVACION_BOLETOS
+(
+CEDULA VARCHAR (14) PRIMARY KEY NOT NULL,
+DESTINO VARCHAR (80) NOT NULL ,
+FECHA DATE NOT NULL,
+NUMERO_RESERVACION INT,
+NUMERO_VUELO INT
+)
+create table FACTURA
+(
+NUMERO_FACTURA VARCHAR (14) NOT NULL,
+CEDULA_v VARCHAR (14) PRIMARY KEY NOT NULL,
+NOMBRE VARCHAR (30) NOT NULL,
+APELLIDOS VARCHAR (30) NOT NULL,
+TELEFONO VARCHAR (12) NOT NULL,
+NUMERO_VUELO INT,
+NUMERO_RESERVACION INT,
+MONTO_PAGAR DECIMAL NOT NULL,
+FECHA_COMPRA DATE NOT NULL
+)
+insert into Empleados (CEDULA , NOMBRE, APELLIDOS, FECHA_NACIMIENTO, DIRECCION,
+TELEFONO, ID_SECTOR, ID_MUNICIPIO, ID_PROVINCIA, ID_REGION, EMAIL, FECHA_CREACION,
+ID_DEPARTAMENTO)
+values
+(2125973154,'Luis','Castillo','2001-07-07','Calle
+Zeus','8298785778',1,2,3,9,'luis@gmail.com','2020-10-15',1),
+(1864004164,'HECTOR','PELAEZ','2001-08-01','Calle
+Quiquella','8292598141',2,3,4,10,'HECTOR@gmail.com','2020-10-10',2),
+(2125973155,'LUIS','REDONDO','2001-07-07','Calle
+Wessin','8290401472',3,4,5,1,'REDONDO@gmail.com','2020-03-02',3),
+(1478913834,'MIGUEL','ANGEL VIVO','1987-04-24','Calle
+Edoar','8296299788',5,6,7,2,'MIGUEL@gmail.com','2020-04-05',4),
+(8855115697,'MANUELA','LERMA','1961-04-03','Calle
+Reyes','8296713496',6,1,8,3,'MANUELA@gmail.com','2020-04-06',5),
+(8439475153,'ENRIQUE','BAJO','1968-03-01','Calle
+Tunkukazo','8295656165',4,5,5,4,'ENRIQUE@gmail.com','2020-10-12',6),
+(6263999917,'ENRIQUE','HIDALGO','1969-07-07','Calle
+Uva','8291536355',9,8,2,5,'HIDALGO@gmail.com','2020-06-08',7),
+(6047985726,'SANDRA','FREIRE','2001-12-01','Calle
+Israel','8297595471',10,6,3,6,'SANDRA@gmail.com','2020-12-05',8),
+(9875185170,'MARIA','VICTORIA','1992-02-01','Calle
+Oneal','8295349207',8,6,10,7,'MARIA@gmail.com','2020-11-09',9),
+(1613077063,'BEATRIZ','CAMINO','1993-03-08','Calle
+Perez','8296257919',7,10,9,8,'BEATRIZ@gmail.com','2020-01-10',10)
+insert into ID_SECTOR values (1,'Nazareth');
+insert into ID_SECTOR values (2,'Los Ríos');
+insert into ID_SECTOR values (3,'Mejoramiento Social');
+insert into ID_SECTOR values (4,'Simón Bolívar');
+insert into ID_SECTOR values (5,'Villa Juana');
+insert into ID_SECTOR values (6,'Ensanche Capotillos');
+insert into ID_SECTOR values (7,'Maria Auxiliadora');
+insert into ID_SECTOR values (8,'Palma Real');
+insert into ID_SECTOR values (9,'Domingo Sabio');
+insert into ID_SECTOR values (10,'La Zurza');
+insert into ID_MUNICIPIO values (1,'Higuey');
+insert into ID_MUNICIPIO values (2,'Hato Mayor');
+insert into ID_MUNICIPIO values (3,'Espaillat');
+insert into ID_MUNICIPIO values (4,'Elías Piña');
+insert into ID_MUNICIPIO values (5,'El Seibo');
+insert into ID_MUNICIPIO values (6,'Duarte');
+insert into ID_MUNICIPIO values (7,'Dajabón');
+insert into ID_MUNICIPIO values (8,'Bahoruco');
+insert into ID_MUNICIPIO values (9,'Azua');
+insert into ID_MUNICIPIO values (10,'Distrito Nacional');
+insert into ID_PROVINCIA values (1,'La altagracia');
+insert into ID_PROVINCIA values (2,'Azua de Compostela');
+insert into ID_PROVINCIA values (3,'Neiba');
+insert into ID_PROVINCIA values (4,'Santa Cruz de Barahona');
+insert into ID_PROVINCIA values (5,'Dajabón');
+insert into ID_PROVINCIA values (6,'Santo Domingo');
+insert into ID_PROVINCIA values (7,'San Francisco de Macorís');
+insert into ID_PROVINCIA values (8,'Comendador');
+insert into ID_PROVINCIA values (9,'Santa Cruz de El Seibo');
+insert into ID_PROVINCIA values (10,'Moca');
+insert into ID_REGION values (1, 'Cibao Norte');
+insert into ID_REGION values (2, 'Cibao Noroeste');
+insert into ID_REGION values (3, 'Ozama Metropolitana');
+insert into ID_REGION values (4, 'Yuma');
+insert into ID_REGION values (5, 'Enriquillo');
+insert into ID_REGION values (6, 'Valdesia');
+insert into ID_REGION values (7, 'Higuamo' );
+insert into ID_REGION values (8, 'Region Noreste');
+insert into ID_REGION values (9, 'Region suroeste');
+insert into ID_REGION values (10, 'El Valle');
+insert into ID_DEPARTAMENTO values (1,'Viajes interior');
+insert into ID_DEPARTAMENTO values (2,'Viajes exterior');
+insert into ID_DEPARTAMENTO values (3,'Lenguas');
+insert into ID_DEPARTAMENTO values (4,'Servicio al cliente');
+insert into ID_DEPARTAMENTO values (5,'Recursos Humanos');
+insert into ID_DEPARTAMENTO values (6,'Pasaporte');
+insert into ID_DEPARTAMENTO values (7,'Seguridad');
+insert into ID_DEPARTAMENTO values (8,'Objetos perdidos');
+insert into ID_DEPARTAMENTO values (9,'Hoteles y viviendas');
+insert into ID_DEPARTAMENTO values (10,'Transporte');
+insert into Viajeros (CEDULA , NOMBRE, APELLIDOS, FECHA_NACIMIENTO, DIRECCION,
+TELEFONO, ID_SECTOR, ID_MUNICIPIO, ID_PROVINCIA, ID_REGION, EMAIL, FECHA_CREACION)
+values
+(2125973154,'CARLOS','ESPAILLAT','1992-10-12','Calle
+Zeus','8090235275',1,2,3,9,'CARLOS@gmail.com','2005-03-10'),
+(9876543210,'JOSE','GONZALOS','1999-12-02','Calle
+Quiquella','80996730545',2,3,4,10,'JOSE@gmail.com','2005-03-10'),
+(4020026369,'MANUEL','MEDINA','1951-12-02','Calle
+Wessin','8091846337',3,4,5,1,'MANUEL@gmail.com','2005-03-10'),
+(0012589634,'ALTURO','CORRIPIO','1988-03-11','Calle
+Edoar','8097112347',5,6,7,2,'ALTURO@gmail.com','2005-03-10'),
+(1236498723,'ANTONIO','CASTILLO','1988-09-07','Calle
+Reyes','8094815078',6,1,8,3,'ANTONIO@gmail.com','2005-03-10'),
+(4268862432,'BENITO','REINOSO','1918-06-01','Calle
+Tunkukazo','8098694338',4,5,5,4,'BENITO@gmail.com','2005-03-10'),
+(3971179326,'WILUMY','CASTRO','1939-05-08','Calle
+Uva','8094606458',9,8,2,5,'WILUMY@gmail.com','2005-03-10'),
+(4628593102,'NICOLLE','ESPITUSANTO','2001-11-12','Calle
+Israel','8090930423',10,6,3,6,'NICOLLE@gmail.com','2005-03-10'),
+(1122336655,'KEO','DE JESUS','1982-10-09','Calle
+Oneal','8097091125',8,6,10,7,'KEO@gmail.com','2005-03-10'),
+(1684675122,'DEIVID','MEJIA','1973-06-04','Calle
+Perez','8096278674',7,10,9,8,'DEIVID@gmail.com','2005-03-10');
+insert into RESERVACION_BOLETOS (CEDULA, DESTINO, FECHA, NUMERO_RESERVACION,
+NUMERO_VUELO)
+values
+(2125973154,'Madrid','2005-03-10', null, 4103),
+(9876543210,'China','2005-03-10', NULL, 4292),
+(4020026369,'Belen','2005-03-10',NULL, 4922),
+(0012589634,'Usa','2005-03-10', NULL, 4221),
+(1236498723,'New York','2005-03-10', NULL, 4955),
+(4268862432,'Hotel Barcelo','2005-03-10', 735, NULL),
+(3971179326,'Hotel Brisas Espirutual','2005-03-10', 735, NULL),
+(4628593102,'Hotel california','2005-03-10', 735, NULL),
+(1122336655,'Hotel Hard Rock','2005-03-10', 735, NULL),
+(1684675122,'Hotel Persivania','2005-03-10',735, NULL);
+insert into FACTURA (NUMERO_FACTURA, CEDULA_v, NOMBRE, APELLIDOS, TELEFONO,
+NUMERO_VUELO, NUMERO_RESERVACION, MONTO_PAGAR, FECHA_COMPRA)
+values
+('7536',2125973154,'CARLOS','ESPAILLAT','8090235275',4103,735,2000,'2005-03-10'),
+('3698',9876543210,'JOSE','GONZALOS','80996730545',4262,735,2000,'2005-03-10'),
+('1475',4020026369,'MANUEL','MEDINA','8091846337',4922,735,2000,'2005-03-10'),
+('9999',0012589634,'ALTURO','CORRIPIO','8097112347',4221,735,2000,'2005-03-10'),
+('6666',1236498723,'ANTONIO','CASTILLO','8094815078',4955,735,2000,'2005-03-10'),
+('8863',4268862432,'BENITO','REINOSO','8098694338',4955,735,2000,'2005-03-10'),
+('9874',3971179326,'WILUMY','CASTRO','8094606458',4966,735,2000,'2005-03-10'),
+('7896',4628593102,'NICOLLE','ESPITUSANTO','8090930423',4933,735,2000,'2005-03-
+10'),
+('3698',1122336655,'KEO','DE JESUS','8097091125',4922,735,2000,'2005-03-10'),
+('1254',1684675122,'DEIVID','MEJIA','8096278674',4911,735,2000,'2005-03-10');
+select * from FACTURA
+select * from Empleados
+inner join ID_SECTOR
+on Empleados.ID_SECTOR= ID_SECTOR.ID;
+select* from Empleados
+inner join ID_MUNICIPIO
+on Empleados.ID_MUNICIPIO = ID_MUNICIPIO.ID;
+select * from Empleados
+inner join ID_PROVINCIA
+on Empleados.ID_PROVINCIA= ID_PROVINCIA.ID;
+select * from Empleados
+inner join ID_REGION
+on Empleados.ID_REGION= ID_REGION.ID;
+select * from Empleados
+inner join ID_SECTOR
+on Empleados.ID_SECTOR= ID_SECTOR.ID;
+select * from Empleados
+inner join ID_DEPARTAMENTO
+on Empleados.ID_DEPARTAMENTO= ID_DEPARTAMENTO.ID;
+create view vw_compras as
+select CEDULA_v,NUMERO_FACTURA,NUMERO_VUELO,NUMERO_RESERVACION
+from FACTURA
+inner join viajeros
+on FACTURA.CEDULA_v=viajeros.CEDULA;
+select * from vw_compras
+create procedure compras @CEDULA bigint as
+select MONTO_PAGAR from FACTURA where CEDULA_v= @CEDULA;
+exec compras 4020026369
+create procedure informacion @cedula bigint as select CEDULA , NOMBRE, APELLIDOS,
+FECHA_NACIMIENTO, DIRECCION, TELEFONO, ID_SECTOR, ID_MUNICIPIO, ID_PROVINCIA,
+ID_REGION, EMAIL, FECHA_CREACION from viajeros where cedula=@cedula;
+exec informacion 2125973154
